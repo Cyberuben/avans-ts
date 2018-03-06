@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/avans-ts.iml" filepath="$PROJECT_DIR$/avans-ts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/devops/devops.iml" filepath="$PROJECT_DIR$/devops/devops.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectmanagement/projectmanagement.iml" filepath="$PROJECT_DIR$/projectmanagement/projectmanagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scm/scm.iml" filepath="$PROJECT_DIR$/scm/scm.iml" />
+    </modules>
+  </component>
+</project>
