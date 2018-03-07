@@ -1,18 +1,30 @@
 package Core.MessageService;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public class MessageFactory {
 
-    HashMap<String, String> files;
+    static HashMap<String, Class<? extends BaseMessage>> templates = new HashMap<String, Class<? extends BaseMessage>>() {
+        {
+            put("backlog-item-todo", BacklogItemTodoMessage.class);
+            put("sprint-failed", SprintFailedMessage.class);
+            put("thread-new-reply", ThreadNewReplyMessage.class);
+        }
+    };
 
-    public String createMessage() {
+    public static BaseMessage createMessage(String name) {
+        if (!templates.containsKey(name)) {
+            System.out.println("Message type "+name+" doesn't exist");
+            return null;
+        }
 
-        Message message = new Message();
-        message.init();
-        message.setData(files);
-        message.getFinal();
-
-        return message.toString();
+        Class<? extends BaseMessage> messageClass = templates.get(name);
+        try {
+            return messageClass.getConstructor().newInstance();
+        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            System.out.print(e);
+            return null;
+        }
     }
 }

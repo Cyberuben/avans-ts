@@ -1,7 +1,6 @@
 package ProjectManagement.SprintState;
 
-import ProjectManagement.BacklogItem;
-import ProjectManagement.Sprint;
+import ProjectManagement.*;
 
 import java.util.Date;
 
@@ -14,8 +13,16 @@ public class PreSprintState extends SprintState {
         this.sprint.name = name;
     }
 
-    public void addBacklogItem(BacklogItem item) {
-        // TODO: Add backlog items
+    public SprintBacklogItem addBacklogItem(BacklogItem item) {
+        SprintBacklogItem i = new SprintBacklogItem(this.sprint, item);
+        this.sprint.backlogItems.add(i);
+        return i;
+    }
+
+    public SprintMember addMember(Member member) {
+        SprintMember m = new SprintMember(member, this.sprint);
+        this.sprint.members.add(m);
+        return m;
     }
 
     public void setDuration(Date start, Date end) {
@@ -25,5 +32,10 @@ public class PreSprintState extends SprintState {
 
     public void start() {
         this.sprint.state = new StartedSprintState(this.sprint);
+        this.sprint.notifyStateChange("pre", "started");
+    }
+
+    public void setType(Sprint.SprintType type) {
+        this.sprint.type = type;
     }
 }

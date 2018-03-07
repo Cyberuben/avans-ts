@@ -12,6 +12,7 @@ public class StartedSprintState extends SprintState {
     public void finish() {
         if(this.sprint.endDate.before(new Date())) {
             this.sprint.state = new FinishedSprintState(this.sprint);
+            this.sprint.notifyStateChange("started", "finished");
             return;
         }
     }

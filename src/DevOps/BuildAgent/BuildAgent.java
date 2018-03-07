@@ -1,6 +1,6 @@
 package DevOps.BuildAgent;
 
-import Core.Branch;
+import SCM.Branch;
 
 public class BuildAgent {
 

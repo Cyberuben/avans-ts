@@ -1,4 +1,4 @@
-package Core;
+package SCM;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,8 +16,8 @@ public class Branch {
         this.name = name;
     }
 
-    public Commit commit(HashMap<String, Integer> files) {
-        Commit c = new Commit(files, this);
+    public Commit commit() {
+        Commit c = new Commit(this);
         this.commits.add(c);
         for (Iterator<BranchObserver> it = observers.iterator(); it.hasNext();) {
             BranchObserver ob = it.next();

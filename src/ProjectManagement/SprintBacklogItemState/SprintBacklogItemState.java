@@ -1,7 +1,10 @@
 package ProjectManagement.SprintBacklogItemState;
 
+import ProjectManagement.Forum.Thread;
 import ProjectManagement.SprintBacklogItem;
 import ProjectManagement.SprintMember;
+import ProjectManagement.SprintTask;
+import Shared.MethodNotAllowedException;
 
 public class SprintBacklogItemState {
     public SprintBacklogItem backlogItem;
@@ -10,27 +13,31 @@ public class SprintBacklogItemState {
 
     }
 
-    public SprintBacklogItemState(SprintBacklogItem item) {
-        this.backlogItem = item;
+    public void setDoing() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException();
     }
 
-    public void setDoing() throws Exception {
-        throw new Exception("Method not allowed");
+    public void setDone() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException();
     }
 
-    public void setDone() throws Exception {
-        throw new Exception("Method not allowed");
+    public void setTodo() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException();
     }
 
-    public void setTodo() throws Exception {
-        throw new Exception("Method not allowed");
+    public void assignTo(SprintMember member) throws MethodNotAllowedException {
+        throw new MethodNotAllowedException();
     }
 
-    public void assignTo(SprintMember member) throws Exception {
-        throw new Exception("Method not allowed");
+    public SprintTask addTask(String name) throws MethodNotAllowedException {
+        throw new MethodNotAllowedException();
     }
 
-    public boolean isDone() throws Exception {
-        throw new Exception("Method not allowed");
+    public boolean isDone() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException();
+    }
+
+    public Thread createThread(SprintMember member, String name, String message) throws MethodNotAllowedException {
+        throw new MethodNotAllowedException();
     }
 }
