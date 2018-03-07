@@ -2,22 +2,26 @@ package DevOps.BuildAgent;
 
 public class BuildAgentControl {
 
-    private Command InstallCommand, UndoCommand;
+    private Command BuildCommand, RevertCommand;
 
-    public BuildAgentControl(Command Install, Command Undo) {
-        InstallCommand = Install;
-        UndoCommand = Undo;
+    public BuildAgentControl(Command Build, Command Revert) {
+        BuildCommand = Build;
+        RevertCommand = Revert;
     }
 
-    public void packageReceived() {
-        System.out.println("Ready to Install PackageAgent");
+    public void buildStart() {
+        System.out.println("Start Building");
 
-        InstallCommand.execute();
+        BuildCommand.execute();
     }
 
-    public void packageFailed() {
-        System.out.println("Undoing Installing PackageAgent");
+    public void buildDone() {
+        System.out.println("Build Done");
+    }
 
-        UndoCommand.execute();
+    public void buildFailed() {
+        System.out.println("Revert Build");
+
+        RevertCommand.execute();
     }
 }
