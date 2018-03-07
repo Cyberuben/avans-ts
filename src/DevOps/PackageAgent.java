@@ -9,25 +9,21 @@ public class PackageAgent {
     // List with Packages
     public List<PackageAgent> packages = new ArrayList<PackageAgent>();
 
-    public void build() {
+    public void install() {
 
         // If Has PackageAgent
         if (this.packages.size() > 0) {
 
             // For Each PackageAgent
             for (Iterator<PackageAgent> p = this.packages.iterator(); p.hasNext();) {
-
-
-                /////////////////////
                 PackageAgent aPackageAgent = p.next();
 
                 // If PackageAgent Exists
                 if (aPackageAgent != null) {
 
-                    // Install PackageAgent
-                    //aPackageAgent.install();
+                    // Install Package
+                    aPackageAgent.install();
                 }
-                ///////////////////////
             }
         }
     }
