@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemorySender implements INotificationSenderAdapter {
-    public List<SentMessage> sentMessages;
+    public static List<SentMessage> sentMessages = new ArrayList<>();
 
     private class SentMessage {
         public String to;
@@ -15,7 +15,7 @@ public class MemorySender implements INotificationSenderAdapter {
     }
 
     public void init(/* fake config */) {
-         this.sentMessages = new ArrayList<>();
+         /* do some fake setup */
     }
 
     public void sendMessage(String to, String content) {
@@ -23,6 +23,6 @@ public class MemorySender implements INotificationSenderAdapter {
         message.to = to;
         message.content = content;
         message.service = new Exception().getStackTrace()[1].getClassName();
-        this.sentMessages.add(message);
+        sentMessages.add(message);
     }
 }

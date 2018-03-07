@@ -13,7 +13,7 @@ public class TodoSprintBacklogItemState extends SprintBacklogItemState {
 
     public void setDoing() {
         if(this.backlogItem.assignedTo == null && this.backlogItem.tasks.size() == 0) {
-            // TODO: Show error message, can't start without tasks or assigning
+            System.out.println("There is no one assigned to this item");
             return;
         }
 
@@ -23,7 +23,7 @@ public class TodoSprintBacklogItemState extends SprintBacklogItemState {
 
     public void assignTo(SprintMember member) {
         if(this.backlogItem.tasks.size() > 0) {
-            // TODO: Show error message, already has tasks
+            System.out.println("No one can be assigned to an item with tasks");
             return;
         }
 
@@ -32,7 +32,7 @@ public class TodoSprintBacklogItemState extends SprintBacklogItemState {
 
     public SprintTask addTask(String name) {
         if(this.backlogItem.assignedTo != null) {
-            // TODO: Show error message, already assigned
+            System.out.println("Can not add tasks if the item is already assigned to someone");
             return null;
         }
 

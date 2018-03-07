@@ -2,6 +2,7 @@ package ProjectManagement;
 
 import ProjectManagement.Forum.Thread;
 import ProjectManagement.SprintBacklogItemState.SprintBacklogItemState;
+import ProjectManagement.SprintBacklogItemState.SprintBacklogItemStateFactory;
 import Shared.MethodNotAllowedException;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class SprintBacklogItem {
     public SprintBacklogItem(Sprint sprint, BacklogItem item) {
         this.sprint = sprint;
         this.backlogItem = item;
+        this.state = SprintBacklogItemStateFactory.getTodoState(this);
     }
 
     public void setDoing() throws MethodNotAllowedException {

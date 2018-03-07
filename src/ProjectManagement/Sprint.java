@@ -1,6 +1,7 @@
 package ProjectManagement;
 
 import ProjectManagement.SprintState.SprintState;
+import ProjectManagement.SprintState.SprintStateFactory;
 import Shared.MethodNotAllowedException;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class Sprint {
     public Sprint(String name, Project project) {
         this.name = name;
         this.project = project;
+        this.state = SprintStateFactory.getPreSprintState(this);
     }
 
     public void setName(String name) throws MethodNotAllowedException {

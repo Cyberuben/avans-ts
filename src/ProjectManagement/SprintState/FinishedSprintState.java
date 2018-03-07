@@ -16,7 +16,7 @@ public class FinishedSprintState extends SprintState {
 
         ReleasingSprintState newState = new ReleasingSprintState(this.sprint);
         this.sprint.state = newState;
-        Agent.getInstance().build(newState);
+        Agent.getInstance().build(newState, this.sprint);
         this.sprint.notifyStateChange("finished", "releasing");
     }
 

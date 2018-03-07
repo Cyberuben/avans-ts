@@ -1,10 +1,7 @@
 package Implementation;
 
 import Core.NotifyService.NotificationAgent;
-import ProjectManagement.Member;
-import ProjectManagement.Sprint;
-import ProjectManagement.SprintBacklogItem;
-import ProjectManagement.SprintMember;
+import ProjectManagement.*;
 import Shared.MethodNotAllowedException;
 
 import java.util.ArrayList;
@@ -12,7 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class CheckSprintFinishedObserver {
+public class CheckSprintFinishedObserver implements SprintStateObserver {
     public void onStateChange(Sprint sprint, String prev, String current) {
         try {
             if (!prev.equals("releasing") && current.equals("finished")) {

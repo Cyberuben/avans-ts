@@ -22,7 +22,7 @@ public class Agent {
 
     public void build(BuildObserver ob, Sprint sprint) {
         try {
-            packageAgent.install();
+            packageAgent.build();
 
             buildAgent.build();
 

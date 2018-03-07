@@ -11,7 +11,7 @@ import java.util.Map;
 public class NotificationAgent {
     private static NotificationAgent instance;
 
-    private HashMap<String, BaseNotificationService> services;
+    private HashMap<String, BaseNotificationService> services = new HashMap<>();
 
     public static NotificationAgent getInstance() {
         if (instance == null) {

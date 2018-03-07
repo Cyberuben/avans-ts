@@ -19,7 +19,7 @@ public class DoingSprintBacklogItemState extends SprintBacklogItemState {
                 SprintTask task = it.next();
                 if(task != null) {
                     if(!task.done) {
-                        // TODO: Print error message
+                        System.out.println("Cannot set to done, not all tasks done yet");
                         return;
                     }
                 }
