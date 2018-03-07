@@ -2,11 +2,11 @@ package DevOps.BuildAgent;
 
 import DevOps.PackageAgent;
 
-public class InstallCommand implements Command {
+public class CustomBuild implements Command {
 
     private PackageAgent packageAgent;
 
-    public InstallCommand(PackageAgent P) {
+    public CustomBuild(PackageAgent P) {
         packageAgent = P;
     }
 
