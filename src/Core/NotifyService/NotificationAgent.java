@@ -11,7 +11,7 @@ import java.util.Map;
 public class NotificationAgent {
     private static NotificationAgent instance;
 
-    private HashMap<String, INotificationService> services;
+    private HashMap<String, BaseNotificationService> services;
 
     public static NotificationAgent getInstance() {
         if (instance == null) {
@@ -21,7 +21,7 @@ public class NotificationAgent {
         return instance;
     }
 
-    public void registerService(String name, INotificationService service) {
+    public void registerService(String name, BaseNotificationService service) {
         this.services.put(name, service);
     }
 
@@ -30,8 +30,8 @@ public class NotificationAgent {
         message.init();
         message.setData(data);
 
-        for(Iterator<Map.Entry<String, INotificationService>> it = services.entrySet().iterator(); it.hasNext();) {
-            Map.Entry<String, INotificationService> entry = it.next();
+        for(Iterator<Map.Entry<String, BaseNotificationService>> it = services.entrySet().iterator(); it.hasNext();) {
+            Map.Entry<String, BaseNotificationService> entry = it.next();
             if (member.notifyConfig.containsKey(entry.getKey())) {
                 entry.getValue().send(member.notifyConfig.get(entry.getKey()), message);
             }

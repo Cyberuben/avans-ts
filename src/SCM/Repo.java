@@ -7,6 +7,13 @@ import java.util.HashMap;
 public class Repo {
     public Project project;
     public HashMap<String, Branch> branches = new HashMap<>();
+    public RepoType type;
+
+    public enum RepoType {
+        NODEJS,
+        JAVA,
+        GOLANG
+    }
 
     public Repo(Project project) {
         this.project = project;
